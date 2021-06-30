@@ -1,0 +1,139 @@
+!!!5
+%html
+    %head
+        %meta{:charset => 'utf-8'}
+        %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}
+        %link{:rel=>"stylesheet", :type=>"text/css", :href=>"css/style.css"}
+        %script{:src=>"script.js"}
+    %body
+        %headerc.header
+        .wrapper_white
+            .head_block
+                %ul.bradcampus_list
+                    %li.bradcampus_item
+                        %a.bradcampus_item_link{:href=>"/"} Главная
+                    %li.bradcampus_item 
+                        %a.bradcampus_item_link{:href=>"/"} Сравнение товаров
+                %h1 Сравнение товаров
+        .wrapper_gray
+            %section.comparison
+                .top_comparison
+                    .for_categories.comparison_td_1
+                        .for_categories_title 
+                            %span.for_categories_title_name Для категорий
+                            .for_categories_title_help
+                                .help 4500 мАч - это примерно 30 часов активного использования устройства
+                        .block_select
+                            %select#categories
+                                %option(label = "Смартфоны")
+                        %ul.checkbox_list
+                            %li.checkbox_item
+                                %a.checkbox_item_link{:href=>"/"}
+                                    %span.checkbox_item_svg{:style=>'background-image:url(img/checkbox_on.svg)'}
+                                    %span.checkbox_item_title Все характеристики
+                            %li.checkbox_item
+                                %a.checkbox_item_link{:href=>"/"}
+                                    %span.checkbox_item_svg{:style=>'background-image:url(img/checkbox_off.svg)'}
+                                    %span.checkbox_item_title Показать только различия
+                    .head_items.comparison_td_2
+                        .head_item.comparison_td_item
+                            %a.button_close{:href=>""} 
+                            %a.product_link_img{:href=>""}
+                                %img{:class=>"product_img", :src=>"img/apple11.png"}
+                            .description_item
+                                .product_type Смартфоны
+                                %a.product_name{:href=>"/"}  Apple iPhone 11 64 Gb (Gold)
+                                .product_price 
+                                    .product_price_new 49 999 ₽
+                                    .product_price_old 60 999 ₽
+                                .product_buy
+                                    %a.btn.buy_btn{:href=>"/"} 
+                                        %span В корзину
+                                    %a.buy_one_click{:href=>"/"}  Купить в 1 клик
+                        .head_item.comparison_td_item
+                            %a.button_close{:href=>""} 
+                            %a.product_link_img{:href=>""}
+                                %img{:class=>"product_img", :src=>"img/Xiaomi.png"}
+                            .description_item
+                                .product_type Смартфоны
+                                %a.product_name{:href=>"/"} Xiaomi Redmi Note 8 Pro (blue)
+                                .product_price 
+                                    .product_price_new 16 700 ₽
+                                    .product_price_old 19 999 ₽
+                                .product_buy
+                                    %a.btn.buy_btn{:href=>"/"} 
+                                        %span В корзину
+                                    %a.buy_one_click{:href=>"/"} Купить в 1 клик
+                .middle_comparison
+
+                    .comparison_tr{:class=>"comparison_bonus"}
+                        .comparison_td_1
+                            %span.comparison_td_name Бонусные рубли
+                        .comparison_td_2
+                            .comparison_td_item 
+                                %span.comparison_item_name + 2 000 бонусов
+                            .comparison_td_item
+                                %span.comparison_item_name + 1 000 бонусов
+
+                    .comparison_tr{:class=>"comparison_stocks"}
+                        .comparison_td_1
+                            %span.comparison_td_name Акции и специальные предложения
+                        .comparison_td_2
+                            .comparison_td_item 
+                                %span.comparison_item_name Рассрочка
+                            .comparison_td_item
+                                %span.comparison_item_name Скидка 50% на наушники
+
+                    .comparison_tr{:class=>"comparison_availability"}
+                        .comparison_td_1
+                            %span.comparison_td_name Наличие
+                        .comparison_td_2
+                            .comparison_td_item 
+                                %span.comparison_item_name В наличии
+                            .comparison_td_item
+                                %span.comparison_item_name От 3 до 5 дней
+
+
+                    - @array_1 = ["Основные","Операционная система","Цвет","Год выпуска","Процессор","Производитель","Тип","Экран","Диагональ (дюймов)","Тип экрана","Разрешение экрана","Камера","Количество основных камер","Разрешения основных камер","Функции основной камеры","Фронтальная камера","Разрешение фронтальной камеры","Вспышка","Память","Встроенная память","Питание","Тип разъема для зарядки","Функция быстрой зарядки","Функция беспроводной зарядки","Подключение","Разъем Lightning 8 Pin","Разъем для наушников"]
+                    - @array_2 = ["", "iOS 13", "золотой", "2019", "", "Apple", "A13 Bionic", "", "5,8", "Super Retina XDR", "2436×1125 точек", "", "3", "12 МПикс, 12 МПикс, 12 МПикс", "Режим «Портрет», портретное освещение, оптическая стабилизация, вспышка True Tone, Focus Pixels", "есть", "12 Мпикс", "есть, светодиодная", "", "64 Гб", "", "Lightning", "есть", "есть", "", "есть", "Lightning"]
+                    - @array_3 = ["", "iOS 13", "черный", "2019", "", "Apple", "A13 Bionic", "", "5,8", "Super Retina XDR", "2436×1125 точек", "", "3", "12 МПикс, 12 МПикс, 12 МПикс", "Режим «Портрет», портретное освещение, оптическая стабилизация, вспышка True Tone, Focus Pixels", "есть", "12 Мпикс", "есть, светодиодная", "", "64 Гб", "", "Lightning", "есть", "есть", "", "есть", "Lightning"]
+
+
+                    - i = 0
+                    - h = 0
+                    - (@array_1).each do |item|
+   
+                        - if @array_2[i] != ""
+                            .comparison_tr{:class=>"comparison_#{i} comparison_h2"}
+                                .comparison_td_1
+                                    .comparison_td_name
+                                        %span #{@array_1[i]}
+                                        - if @array_1[i] == "Разъем Lightning 8 Pin"
+                                            .for_categories_title_help
+                                                .help 4500 мАч - это примерно 30 часов активного использования устройства
+                                
+                                    .comparison_td_name.comparison_td_name_for_mobile
+                                        %span #{@array_1[i]}
+                                .comparison_td_2
+                                    .comparison_td_item 
+                                        %span.comparison_item_name #{@array_2[i]}
+                                    .comparison_td_item
+                                        %span.comparison_item_name #{@array_3[i]}
+                        - else 
+                            .comparison_tr{:class=>"comparison_#{i} comparison_h1"}
+                                .comparison_td_1
+                                    %span.comparison_td_name #{@array_1[i]}
+                                .comparison_td_2
+                                    .comparison_td_item 
+                                        %span.comparison_item_name #{@array_2[i]}
+                                    .comparison_td_item
+                                        %span.comparison_item_name #{@array_3[i]}
+                        - i = i + 1;
+
+
+           
+                .bottom_comparison
+                    %p.seo_text Смартфон Apple iPhone 11 64GB Black (MWLT2RU/A) и Смартфон Apple iPhone SE 2020 128GB Black (MXD02RU/A) - сравнение основных характеристик моделей
+                    .buttons__bottom
+                        %button.btn.btn_clean_list Очистить список
+                        %button.btn.btn_back Назад к товарам
